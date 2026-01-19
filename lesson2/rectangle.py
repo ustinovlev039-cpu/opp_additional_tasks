@@ -8,20 +8,43 @@
 - is_square(width, height): статический метод, принимающий ширину и высоту прямоугольника и возвращающий True,
 если это квадрат, и False в противном случае
 """
-
+import math
 
 class Rectangle:
-    pass
+
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
 
 
-# код для проверки 
-rectangle = Rectangle(4, 5)
-print(rectangle.area())  # 20
-print(rectangle.perimeter())  # 18
+    @classmethod
+    def from_diagonal(cls, diagonal, aspect_radio):
+        height = diagonal / math.sqrt(aspect_radio ** 2 + 1)
+        width = aspect_radio * height
+        return cls(width, height)
 
-rectangle2 = Rectangle.from_diagonal(5, 2)
-print(rectangle2.area())  # 10.0128
-print(rectangle2.perimeter())  # 13.42
+    @staticmethod
+    def is_square(width, height):
+        return width == height
 
-print(Rectangle.is_square(4, 4))  # True
-print(Rectangle.is_square(4, 5))  # False
+
+
+
+if __name__ == "__main__":
+    # код для проверки
+    rectangle = Rectangle(4, 5)
+    print(rectangle.area())  # 20
+    print(rectangle.perimeter())  # 18
+
+    rectangle2 = Rectangle.from_diagonal(5, 2)
+    print(rectangle2.area())  # 10.0128
+    print(rectangle2.perimeter())  # 13.42
+
+    print(Rectangle.is_square(4, 4))  # True
+    print(Rectangle.is_square(4, 5))  # False
