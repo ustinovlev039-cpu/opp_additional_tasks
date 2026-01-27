@@ -11,15 +11,31 @@
 
 
 class MyList:
-    pass
+
+    def __init__(self, data):
+        self.data = data
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.data})"
+
+    def __str__(self):
+        return f"{self.data}"
+
+    def __len__(self):
+        return len(self.data)
+
+    def __add__(self, other):
+        return self.data + other.data
 
 
-# код для проверки 
-my_list1 = MyList([1, 2, 3])
-print(repr(my_list1))  # MyList([1, 2, 3])
-print(str(my_list1))  # [1, 2, 3]
-print(len(my_list1))  # 3
 
-my_list2 = MyList([4, 5, 6])
-my_list3 = my_list1 + my_list2
-print(my_list3)  # [1, 2, 3, 4, 5, 6]
+if __name__ == "__main__":
+    # код для проверки
+    my_list1 = MyList([1, 2, 3])
+    print(repr(my_list1))  # MyList([1, 2, 3])
+    print(str(my_list1))  # [1, 2, 3]
+    print(len(my_list1))  # 3
+
+    my_list2 = MyList([4, 5, 6])
+    my_list3 = my_list1 + my_list2
+    print(my_list3)  # [1, 2, 3, 4, 5, 6]

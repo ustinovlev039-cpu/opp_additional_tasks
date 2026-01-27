@@ -9,19 +9,25 @@
 
 class Counter:
 
-    def __init__(self, count):
-        self.count = count
+    def __init__(self):
+        self.count = 0
 
-    def __call__(self):
-        return
+    def __call__(self, *args, **kwargs):
+        return self.count
 
 
-# код для проверки 
-counter = Counter()
-print(counter())  # 0
+    def increment(self):
+        self.count += 1
 
-counter.increment()
-print(counter())  # 1
 
-counter.increment()
-print(counter())  # 2
+
+if __name__ == "__main__":
+    # код для проверки
+    counter = Counter()
+    print(counter())  # 0
+
+    counter.increment()
+    print(counter())  # 1
+
+    counter.increment()
+    print(counter())  # 2

@@ -9,14 +9,29 @@
 
 
 class Point:
-    pass
+
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.x}, {self.y})"
+
+    def __str__(self):
+        return f"{self.x}, {self.y}"
+
+    def __add__(self, other):
+        new_x = self.x + other.x
+        new_y = self.y + other.y
+        return Point(new_x, new_y)
 
 
-# код для проверки 
-point1 = Point(1, 2)
-print(repr(point1))  # Point(1, 2)
-print(str(point1))  # (1, 2)
+if __name__ == "__main__":
+    # код для проверки
+    point1 = Point(1, 2)
+    print(repr(point1))  # Point(1, 2)
+    print(str(point1))  # (1, 2)
 
-point2 = Point(3, 4)
-point3 = point1 + point2
-print(point3)  # (4, 6)
+    point2 = Point(3, 4)
+    point3 = point1 + point2
+    print(point3)  # (4, 6)

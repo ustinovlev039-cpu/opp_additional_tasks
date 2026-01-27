@@ -8,9 +8,18 @@
 
 
 class Logger:
-    pass
+
+    def __init__(self, filename):
+        self.filename = filename
 
 
-# код для проверки 
-logger = Logger("log.txt")
-logger("This is a test message.")
+    def __call__(self, message):
+        with open(self.filename, "w", encoding="utf-8") as f:
+            new_file = f.write(message)
+
+
+
+if __name__ == "__main__":
+    # код для проверки
+    logger = Logger("log.txt")
+    logger("This is a test message.")
