@@ -13,15 +13,35 @@
 
 
 class Person:
-    pass
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def get_name(self):
+        return self.name
+
+    def get_age(self):
+        return self.age
 
 
-# код для проверки 
-person = Person("Иван", 25)
-print(person.get_name())  # Иван
-print(person.get_age())  # 25
+class Student(Person):
 
-student = Student("Мария", 20, "математика")
-print(student.get_name())  # Мария
-print(student.get_age())  # 20
-print(student.get_major())  # математика
+    def __init__(self, name, age, major):
+        super().__init__(name, age)
+        self.major = major
+
+    def get_major(self):
+        return self.major
+
+
+if __name__ == "__main__":
+    # код для проверки
+    person = Person("Иван", 25)
+    print(person.get_name())  # Иван
+    print(person.get_age())  # 25
+
+    student = Student("Мария", 20, "математика")
+    print(student.get_name())  # Мария
+    print(student.get_age())  # 20
+    print(student.get_major())  # математика

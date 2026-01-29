@@ -12,12 +12,30 @@
 
 
 class Employee:
-    pass
+
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+
+    def get_salary(self):
+        return self.salary
 
 
-# код для проверки 
-employee = Employee("John", 5000)
-print(employee.get_salary())  # 5000
+class Manager(Employee):
 
-manager = Manager("Jane", 10000, 5000)
-print(manager.get_salary())  # 15000
+    def __init__(self, name, salary, bonus):
+        super().__init__(name, salary)
+        self.bonus = bonus
+
+
+    def get_salary(self):
+        return self.salary + self.bonus
+
+
+if __name__ == "__main__":
+    # код для проверки
+    employee = Employee("John", 5000)
+    print(employee.get_salary())  # 5000
+
+    manager = Manager("Jane", 10000, 5000)
+    print(manager.get_salary())  # 15000
