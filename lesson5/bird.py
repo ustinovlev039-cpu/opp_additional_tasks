@@ -14,16 +14,35 @@
 
 
 class Bird:
-    pass
+
+    def __init__(self):
+        pass
+
+    def fly(self):
+        print("Flying")
 
 
-# код для проверки 
-bird = Bird()
-bird.fly()  # Flying
+class Penguin(Bird):
 
-penguin = Penguin()
-penguin.fly()  # I am a penguin and cannot fly
+    def fly(self):
+        print("I am a penguin and cannot fly")
 
-eagle = Eagle()
-eagle.fly()  # Flying
-eagle.hunt()  # Hunting
+
+class Eagle(Bird):
+
+    def hunt(self):
+        print("Hunting")
+
+
+
+if __name__ == "__main__":
+    # код для проверки
+    bird = Bird()
+    bird.fly()  # Flying
+
+    penguin = Penguin()
+    penguin.fly()  # I am a penguin and cannot fly
+
+    eagle = Eagle()
+    eagle.fly()  # Flying
+    eagle.hunt()  # Hunting
